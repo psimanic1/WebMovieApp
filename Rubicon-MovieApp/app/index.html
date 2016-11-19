@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang='en' data-ng-app='rubiconMovieApp'>
+  <head>
+    <title>Rubicon-MovieApp</title>
+    <meta name='viewport' content='width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes'>
+    <!-- inject:head:js -->
+    <!-- endinject -->
+    <!-- inject:html -->
+    <!-- endinject -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <script src="vendor/angular-cookies/angular-cookies.js"></script>
+    <script src="https://cdn.jsdelivr.net/ngstorage/0.3.6/ngStorage.min.js"></script>
+  </head>
+  <body>
+    <div class='container'>
+      <br><br>
+       <div class="row" >
+        <div class="col-md-offset-1">
+           <a data-ui-sref='movies'> <button class="btn btn-outlined btn-lg">Movies</button></a>
+           <a data-ui-sref='series' ><button class="btn btn-outlined btn-lg" >TV Shows</button></a>
+             
+        </div>
+    </div>
+    <br /><br /><br />
+    
+      <div data-ui-view>
+
+      </div>
+    </div>
+
+    <!-- bower:js -->
+    <!-- endbower -->
+    <!-- inject:js -->
+    <!-- endinject -->
+  </body>
+</html>

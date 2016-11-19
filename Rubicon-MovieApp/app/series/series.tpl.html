@@ -1,0 +1,31 @@
+
+<div class="row">
+         <div class="col-md-10 ">
+                    <div class="form-group has-success has-feedback">
+                          <div class="input-group">
+                            <span class="input-group-addon">Search</span>
+                            <input type="search" minlength="3" class="form-control" uib-typeahead="tvshow.name for tvshow in series.serije | filter: {name:series.search} " typeahead-min-length="3" id="inputGroupSuccess1" ng-change="series.getfullList()" ng-model="series.search" >
+                          </div> 
+                    </div>
+         </div>
+         
+    </div>
+
+<div ng-if="series.search.length>2">
+        <ul class="list-unstyled">
+            <li ng-repeat="tvshow in series.serije | filter: {name: series.search} " ng-click="series.goToDetails(tvshow);" class="col-md-6 odd">
+               <img style="width:350px; height:350px;" src="{{series.imgLink+ tvshow.poster_path}}" />
+              
+               <p style="border:3px solid black; width:350px; text-align:center"><br/>{{tvshow.name}}</p></li>
+            </li>
+        </ul>
+    </div>
+<div ng-if="series.search==null || series.search.length<3 || series.search==''">
+         <ul class="list-unstyled" >      
+           <li ng-repeat="tvshow in series.series | limitTo: 10" class="col-md-6 odd"
+            ng-click="series.goToDetails(tvshow);">
+               <img style="width:350px; height:350px;" src="https://image.tmdb.org/t/p/w500{{tvshow.poster_path}}" />
+               <p style="border:3px solid black; width:350px; text-align:center"><br/>{{tvshow.name}}</p></li>
+           </div>
+        </ul>
+</div>

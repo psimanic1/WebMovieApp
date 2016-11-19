@@ -1,0 +1,32 @@
+
+<div class="row">
+         <div class="col-md-10 ">
+                    <div class="form-group has-success has-feedback">
+                          <div class="input-group">
+                            <span class="input-group-addon">Search</span>
+                            <input type="search"  class="form-control" uib-typeahead="movie.original_title for movie in movies.filmovi | filter: {original_title:movies.search} | limitTo:5" typeahead-min-length="3"  minlength="3" id="inputGroupSuccess1" ng-model="movies.search" ng-change="movies.getfulllist()">
+                          </div> 
+                    </div>
+         </div>
+         
+    </div>
+    
+ <div ng-if="movies.search.length>2">
+        <ul class="list-unstyled">
+            <li ng-repeat="movie in movies.filmovi | filter: {original_title: movies.search} " class="col-md-6 odd" ng-click="movies.goToDetails(movie);">
+               <img style="width:350px; height:350px;" src="{{movies.imgLink+ movie.poster_path}}" />
+              
+               <p style="border:3px solid black; width:350px; text-align:center"><br/>{{movie.original_title}}</p></li>
+            </li>
+        </ul>
+    </div>
+<div ng-if="movies.search==null || movies.search.length<3 || movies.search==''" >
+        <ul class="list-unstyled" >          
+           <li ng-repeat="movie in movies.movies | limitTo: 10" class="col-md-6 odd" 
+           ng-click="movies.goToDetails(movie);">
+               <img style="width:350px; height:350px;" src="{{movies.imgLink+ movie.poster_path}}" />
+              
+               <p style="border:3px solid black; width:350px; text-align:center"><br/>{{movie.original_title}}</p></li>
+           </div>
+        </ul>
+</div>
